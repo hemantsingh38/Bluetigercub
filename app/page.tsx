@@ -18,14 +18,14 @@ export default function Home() {
         </Reveal>
         <Reveal
           delay={0.15}
-          className="ml-[calc(50%-50vw)] mt-8 sm:mt-4"
+          className="ml-[calc(50%-50vw)] mt-8 w-screen sm:mt-4"
         >
           <Image
             src={`${basePath}/images/hero-background.webp`}
             alt="Blue Tiger Cub — Creative, Bold, Playful"
             width={1513}
             height={800}
-            className="h-[24vh] w-auto max-w-full select-none sm:h-[28vh] lg:h-[30vh]"
+            className="h-auto w-full select-none"
             priority
           />
         </Reveal>

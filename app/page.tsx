@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BlueTigerCubBadge } from "@/components/blue-tiger-cub-badge";
+import { CvSection } from "@/components/cv-section";
 import { Reveal } from "@/components/reveal";
 import { WorkGrid } from "@/components/work-grid";
 import { basePath } from "@/lib/base-path";
@@ -65,6 +66,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <CvSection />
     </>
   );
 }

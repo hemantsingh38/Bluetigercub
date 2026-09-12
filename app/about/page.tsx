@@ -1,96 +1,12 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/reveal";
+import { CERTIFICATIONS, CV_CONTACT, CV_SUMMARY, EDUCATION, EXPERIENCE, SKILL_GROUPS } from "@/lib/cv";
 
 export const metadata: Metadata = {
   title: "About — Hemant Singh",
   description:
     "Product designer based in Gurugram, working across enterprise, fintech, edtech and e-commerce.",
 };
-
-const SKILL_GROUPS = [
-  {
-    title: "Product & UX",
-    items: [
-      "End-to-end product design",
-      "Rapid prototyping",
-      "Exploring multiple directions",
-      "User flows & information architecture",
-      "Usability testing",
-    ],
-  },
-  {
-    title: "Research & Strategy",
-    items: [
-      "Personas & contextual inquiry",
-      "Competitor analysis",
-      "Journey & empathy mapping",
-      "Product strategy",
-    ],
-  },
-  {
-    title: "UI & Systems",
-    items: ["Visual design", "Design systems", "Componentization", "Branding", "Accessibility"],
-  },
-  {
-    title: "AI-Native Design",
-    items: [
-      "Designing for LLM & agentic products",
-      "AI-accelerated workflow (Claude, v0, Cursor)",
-      "~2x directions explored, ~2x faster turnaround",
-    ],
-  },
-];
-
-const EXPERIENCE = [
-  {
-    role: "Design Analyst",
-    org: "Deloitte USI",
-    period: "Jul 2025–Present",
-    meta: "Full-time, Hybrid, Gurugram",
-  },
-  {
-    role: "Interaction Designer",
-    org: "Skitre.ai",
-    period: "Jan–Apr 2025",
-    meta: "Freelance, Remote, Edtech",
-  },
-  {
-    role: "UX & UI Designer",
-    org: "Creative Stoica",
-    period: "Jul–Oct 2024",
-    meta: "Freelance, Remote, Edtech",
-  },
-  {
-    role: "UX & Web Designer",
-    org: "Sampann",
-    period: "Feb–Apr 2024",
-    meta: "Freelance, Remote, Fintech",
-  },
-  {
-    role: "UX & UI Designer",
-    org: "Crafters",
-    period: "Dec 2023–Feb 2024",
-    meta: "Part-time, Remote, Design agency",
-  },
-  {
-    role: "UX & UI Designer",
-    org: "Pictonix",
-    period: "Jun–Aug 2023",
-    meta: "Internship, Remote, Design agency",
-  },
-  {
-    role: "UX & UI Designer",
-    org: "VCriate",
-    period: "Mar–May 2023",
-    meta: "Internship, Remote, IT services",
-  },
-  {
-    role: "Graphic Designer",
-    org: "Wilson Wings",
-    period: "Dec 2022–Feb 2023",
-    meta: "Internship, Remote, Design agency",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -99,14 +15,7 @@ export default function AboutPage() {
       <section className="flex flex-col-reverse gap-10 lg:flex-row lg:items-center lg:gap-16">
         <Reveal className="max-w-2xl">
           <p className="text-2xl leading-[1.45] text-text-primary sm:text-3xl lg:text-4xl">
-            Hi, I&apos;m Hemant — a Product Designer based in Gurugram,
-            working across enterprise, fintech, edtech and e-commerce for the
-            past 3+ years. I currently design at Deloitte USI, shipping
-            complex, regulated products for global pharmaceutical and
-            industrial clients and multiple U.S. state governments. I turn
-            ambiguous, high-stakes problems into clear interfaces — and I use
-            AI across my process to roughly halve turnaround while doubling
-            the directions I explore for any given problem.
+            {CV_SUMMARY}
           </p>
         </Reveal>
         <Reveal delay={0.1} className="aspect-[4/5] w-full max-w-xs shrink-0 rounded-sm bg-diagram-bg lg:ml-auto" />
@@ -155,16 +64,14 @@ export default function AboutPage() {
       <section className="mt-24 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:mt-32">
         <Reveal>
           <h2 className="text-lg text-text-primary">Education</h2>
-          <p className="mt-4 text-sm leading-relaxed text-text-body">
-            B.Des — UX Design, DIT University, Dehradun (May 2025)
-          </p>
+          <p className="mt-4 text-sm leading-relaxed text-text-body">{EDUCATION}</p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="text-lg text-text-primary">Certifications</h2>
           <ul className="mt-4 space-y-2 text-sm leading-relaxed text-text-body">
-            <li>HCI: The Foundation of UX Design — IxDF, 2023, Top 10%</li>
-            <li>Design for the 21st Century (Don Norman) — IxDF, 2023, Top 10%</li>
-            <li>Claude Code &amp; Claude 101 — Anthropic</li>
+            {CERTIFICATIONS.map((cert) => (
+              <li key={cert}>{cert}</li>
+            ))}
           </ul>
         </Reveal>
       </section>
@@ -208,15 +115,15 @@ export default function AboutPage() {
           <h2 className="text-lg text-text-primary">Contact</h2>
           <p className="mt-4 text-sm leading-relaxed text-text-body">
             <a
-              href="https://www.linkedin.com/in/hemant-singh"
+              href={CV_CONTACT.linkedinHref}
               target="_blank"
               rel="noreferrer"
               className="text-text-primary underline underline-offset-4 hover:opacity-70"
             >
-              linkedin.com/in/hemant-singh
+              {CV_CONTACT.linkedinLabel}
             </a>
             <br />
-            Gurugram, Delhi NCR, India
+            {CV_CONTACT.location}
           </p>
         </Reveal>
       </section>

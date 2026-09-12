@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <section className="relative mx-auto max-w-[1560px] px-6 pb-16 pt-20 sm:px-9 sm:pt-28">
         <Reveal>
-          <p className="max-w-4xl text-4xl leading-[1.35] text-text-primary sm:text-5xl lg:text-6xl">
+          <p className="max-w-4xl text-4xl leading-[1.35] text-text-primary sm:text-5xl">
             Hi, I am Hemant, a creative person, working as a Product
             Designer, Interaction Designer, Visual designer in Gurugram,
             India. I am working since 2022.
@@ -18,7 +18,7 @@ export default function Home() {
         </Reveal>
         <Reveal
           delay={0.15}
-          className="relative ml-[calc(50%-50vw)] mt-8 aspect-[1513/800] w-screen max-h-[26vh] overflow-hidden sm:mt-4 sm:max-h-[30vh] lg:max-h-[32vh]"
+          className="relative ml-[calc(50%-50vw)] mt-8 aspect-[1513/800] w-screen max-h-[30vh] overflow-hidden sm:mt-4 sm:max-h-[42vh]"
         >
           <Image
             src={`${basePath}/images/hero-background.webp`}

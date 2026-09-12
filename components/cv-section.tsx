@@ -7,7 +7,6 @@ import {
   CERTIFICATIONS,
   CV_CONTACT,
   CV_PAGES,
-  CV_SUMMARY,
   EDUCATION,
   EXPERIENCE,
   SKILL_GROUPS,
@@ -40,16 +39,12 @@ export function CvSection() {
 
       <Reveal
         delay={0.1}
-        className="mx-auto mt-10 w-full max-w-2xl rounded-sm border border-accent/10 bg-bg p-8 text-left shadow-[0_30px_60px_-25px_rgba(25,72,200,0.35)] sm:p-14"
+        className="mx-auto mt-10 h-[1080px] w-full max-w-2xl overflow-y-auto rounded-sm border border-accent/10 bg-bg p-8 text-left shadow-[0_30px_60px_-25px_rgba(25,72,200,0.35)] sm:h-[960px] sm:p-14 lg:h-[900px]"
       >
         <AnimatePresence mode="wait">
           {page === "experience" ? (
             <motion.div key="experience" {...PAGE_TRANSITION}>
-              <p className="text-lg leading-relaxed text-text-primary sm:text-xl">
-                {CV_SUMMARY}
-              </p>
-
-              <h3 className="mt-10 text-base text-text-primary">Experience</h3>
+              <h3 className="text-base text-text-primary">Experience</h3>
               <div className="mt-4 divide-y divide-accent/10 border-t border-accent/10">
                 {EXPERIENCE.map((role) => (
                   <div
@@ -65,6 +60,16 @@ export function CvSection() {
                   </div>
                 ))}
               </div>
+
+              <h3 className="mt-10 text-base text-text-primary">Certifications</h3>
+              <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-text-body">
+                {CERTIFICATIONS.map((cert) => (
+                  <li key={cert}>{cert}</li>
+                ))}
+              </ul>
+
+              <h3 className="mt-10 text-base text-text-primary">Education</h3>
+              <p className="mt-3 text-sm leading-relaxed text-text-body">{EDUCATION}</p>
             </motion.div>
           ) : (
             <motion.div key="skills" {...PAGE_TRANSITION}>
@@ -79,21 +84,6 @@ export function CvSection() {
                     </ul>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <div>
-                  <h3 className="text-base text-text-primary">Education</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-text-body">{EDUCATION}</p>
-                </div>
-                <div>
-                  <h3 className="text-base text-text-primary">Certifications</h3>
-                  <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-text-body">
-                    {CERTIFICATIONS.map((cert) => (
-                      <li key={cert}>{cert}</li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
               <p className="mt-10 text-sm leading-relaxed text-text-body">

@@ -118,8 +118,8 @@ export const CV_CONTACT = {
 
 /** The two "pages" of the Home page CV section, switched via the dot nav. */
 export const CV_PAGES = [
-  { id: "experience", label: "Profile & Experience" },
-  { id: "skills", label: "Skills & Education" },
+  { id: "experience", label: "Experience, Certifications & Education" },
+  { id: "skills", label: "Skills" },
 ] as const;
 
 export type CvPageId = (typeof CV_PAGES)[number]["id"];

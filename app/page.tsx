@@ -17,20 +17,20 @@ export default function Home() {
           </p>
         </Reveal>
         <Reveal
-          delay={0.2}
-          className="mt-10 w-[160px] rotate-3 sm:absolute sm:right-9 sm:top-24 sm:mt-0 sm:w-[200px]"
+          delay={0.15}
+          className="relative mt-8 w-full max-w-[1300px] sm:mt-4"
         >
-          <BlueTigerCubBadge />
-        </Reveal>
-        <Reveal delay={0.15} className="mt-8 w-full max-w-2xl sm:mt-4">
           <Image
             src={`${basePath}/images/botanical-illustration.webp`}
             alt=""
             width={1200}
             height={950}
-            className="w-full select-none"
+            className="h-auto w-full select-none"
             priority
           />
+          <div className="absolute bottom-0 right-0 z-10 w-[150px] sm:w-[220px]">
+            <BlueTigerCubBadge />
+          </div>
         </Reveal>
       </section>
 

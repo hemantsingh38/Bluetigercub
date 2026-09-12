@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BlueTigerCubBadge } from "@/components/blue-tiger-cub-badge";
 import { Reveal } from "@/components/reveal";
 import { WorkGrid } from "@/components/work-grid";
+import { basePath } from "@/lib/base-path";
 
 export default function Home() {
   return (
@@ -20,6 +22,16 @@ export default function Home() {
         >
           <BlueTigerCubBadge />
         </Reveal>
+        <Reveal delay={0.15} className="mt-8 w-full max-w-2xl sm:mt-4">
+          <Image
+            src={`${basePath}/images/botanical-illustration.webp`}
+            alt=""
+            width={1200}
+            height={950}
+            className="w-full select-none"
+            priority
+          />
+        </Reveal>
       </section>
 
       <WorkGrid />
@@ -31,7 +43,15 @@ export default function Home() {
           </p>
         </Reveal>
         <div className="mt-10 flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:gap-16">
-          <Reveal delay={0.1} className="aspect-[723/658] w-full max-w-md rounded-sm bg-diagram-bg lg:w-1/2" />
+          <Reveal delay={0.1} className="w-full max-w-md overflow-hidden rounded-sm lg:w-1/2">
+            <Image
+              src={`${basePath}/images/hemant-team-photo.webp`}
+              alt="Hemant with teammates, all wearing hand-drawn paper bag masks"
+              width={1000}
+              height={909}
+              className="w-full"
+            />
+          </Reveal>
           <Reveal delay={0.15} className="max-w-lg">
             <p className="text-2xl leading-snug text-text-primary sm:text-3xl">
               Product, interaction, and visual design — all under one name.

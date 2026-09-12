@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BlueTigerCubBadge } from "./blue-tiger-cub-badge";
+import { basePath } from "@/lib/base-path";
 
 // Site links repeat here to match the Figma footer (which duplicates the nav).
 const SITE_LINKS = [
@@ -56,7 +58,17 @@ export function Footer() {
         </div>
       </div>
 
-      <p className="mx-auto mt-16 max-w-[1560px] text-xs text-text-body/60">
+      <div className="mx-auto mt-16 max-w-[1560px]">
+        <Image
+          src={`${basePath}/images/footer-gazebo-illustration.webp`}
+          alt=""
+          width={1100}
+          height={1009}
+          className="w-full max-w-sm select-none"
+        />
+      </div>
+
+      <p className="mx-auto mt-8 max-w-[1560px] text-xs text-text-body/60">
         © {new Date().getFullYear()} Hemant Singh.
       </p>
     </footer>

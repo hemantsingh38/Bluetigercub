@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
     output: "export",
     basePath: `/${repoName}`,
     assetPrefix: `/${repoName}/`,
+    // Static export has no server to run the on-the-fly image optimizer,
+    // so next/image needs to serve files as-is here. Vercel/local dev keep
+    // full optimization since this only applies under GITHUB_PAGES=true.
+    images: { unoptimized: true },
   }),
 };
 

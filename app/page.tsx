@@ -18,7 +18,7 @@ export default function Home() {
         </Reveal>
         <Reveal
           delay={0.15}
-          className="relative -ml-6 mt-8 aspect-[1200/950] w-[58vw] max-w-[1000px] max-h-[26vh] overflow-hidden sm:-ml-9 sm:mt-4 sm:max-h-[30vh] lg:max-h-[32vh]"
+          className="relative ml-[calc(50%-50vw)] mt-8 aspect-[1200/950] w-[58vw] max-w-[1000px] max-h-[26vh] overflow-hidden sm:mt-4 sm:max-h-[30vh] lg:max-h-[32vh]"
         >
           <Image
             src={`${basePath}/images/botanical-illustration.webp`}

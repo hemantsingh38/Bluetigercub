@@ -4,6 +4,11 @@ Personal portfolio site: Next.js (App Router) + TypeScript + Tailwind CSS v4 +
 Framer Motion. Built from `PORTFOLIO_BUILD_BRIEF.md` and `CONTENT_DRAFT.md`
 plus a Figma reference (fileKey `F8x4aFDIGTyzBICUKmP7A7`).
 
+**Live:** https://hemantsingh38.github.io/Bluetigercub/ — deployed via
+`.github/workflows/deploy-pages.yml` on every push to this branch (or
+`main`, once merged). See that workflow file for the static-export /
+`basePath` setup this hosting mode needs.
+
 ## Getting started
 
 ```bash

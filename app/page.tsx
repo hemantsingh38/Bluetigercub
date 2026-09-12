@@ -16,13 +16,16 @@ export default function Home() {
             India. I am working since 2022.
           </p>
         </Reveal>
-        <Reveal delay={0.15} className="relative mt-8 inline-block sm:mt-4">
+        <Reveal
+          delay={0.15}
+          className="relative -ml-6 mt-8 aspect-[1200/950] w-[58vw] max-w-[1000px] max-h-[26vh] overflow-hidden sm:-ml-9 sm:mt-4 sm:max-h-[30vh] lg:max-h-[32vh]"
+        >
           <Image
             src={`${basePath}/images/botanical-illustration.webp`}
             alt=""
-            width={1200}
-            height={950}
-            className="h-[22vh] w-auto max-w-full select-none sm:h-[26vh] lg:h-[28vh]"
+            fill
+            sizes="58vw"
+            className="object-cover object-bottom select-none"
             priority
           />
           <div className="absolute bottom-0 right-0 z-10 w-[150px] sm:w-[220px]">

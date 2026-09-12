@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BlueTigerCubBadge } from "@/components/blue-tiger-cub-badge";
 import { CvSection } from "@/components/cv-section";
 import { Reveal } from "@/components/reveal";
 import { WorkGrid } from "@/components/work-grid";
@@ -19,19 +18,16 @@ export default function Home() {
         </Reveal>
         <Reveal
           delay={0.15}
-          className="relative ml-[calc(50%-50vw)] mt-8 aspect-[1200/950] w-[58vw] max-w-[1000px] max-h-[26vh] overflow-hidden sm:mt-4 sm:max-h-[30vh] lg:max-h-[32vh]"
+          className="ml-[calc(50%-50vw)] mt-8 sm:mt-4"
         >
           <Image
-            src={`${basePath}/images/botanical-illustration.webp`}
-            alt=""
-            fill
-            sizes="58vw"
-            className="object-cover object-bottom select-none"
+            src={`${basePath}/images/hero-background.webp`}
+            alt="Blue Tiger Cub — Creative, Bold, Playful"
+            width={1513}
+            height={800}
+            className="h-[24vh] w-auto max-w-full select-none sm:h-[28vh] lg:h-[30vh]"
             priority
           />
-          <div className="absolute bottom-0 right-0 z-10 w-[150px] sm:w-[220px]">
-            <BlueTigerCubBadge />
-          </div>
         </Reveal>
       </section>
 

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens sampled from the Figma file (fileKey F8x4aFDIGTyzBICUKmP7A7)
+ * and PORTFOLIO_BUILD_BRIEF.md. Deliberate rule: there is no black/gray body
+ * text anywhere in this design — every piece of type sits somewhere in the
+ * same blue family. Keep that strict; don't default to a gray for body copy.
+ *
+ * Fonts confirmed directly from the Figma file's text nodes: PT Serif
+ * (headlines, body, nav), PT Serif Caption (small UI labels: work-grid
+ * captions, filter tags, badge subtext), Allison (the cursive badge/index
+ * script), and Antro Vectra Bolder (the large "Hemant Singh" display name
+ * on the Home page) — a licensed font file Hemant supplied directly, loaded
+ * via next/font/local in app/layout.tsx.
+ */
+@theme {
+  --color-bg: #ffffff;
+  --color-text-primary: #1948c8;
+  --color-text-body: #1255c4;
+  --color-accent: #1767e7;
+  --color-accent-light: #3b85e8;
+  --color-diagram-bg: #f9f9f9;
+
+  --color-note-yellow: #ffe299;
+  --color-note-pink: #ffa8db;
+  --color-note-purple: #d3bdff;
+  --color-note-blue: #a8daff;
+  --color-note-green: #b3efbd;
+  --color-note-teal: #b3f4ef;
+  --color-note-coral: #ffafa3;
+  --color-section-orange: #ff9e42;
+
+  --font-serif: var(--font-pt-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --font-caption: var(--font-pt-serif-caption), var(--font-serif);
+  --font-script: var(--font-allison), cursive;
+  --font-display: var(--font-antro-vectra), var(--font-serif);
+
+  --breakpoint-xs: 400px;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-body);
+  font-family: var(--font-serif);
+}

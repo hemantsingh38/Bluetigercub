@@ -177,27 +177,48 @@ export function HealthStatusIcon({
   );
 }
 
+// Recreates the Figma Reliability Pillar badge (a scalloped metal seal
+// around a faceted star) as hand-authored SVG — the exact asset export
+// isn't fetchable in this environment (see the note at the top of this
+// file), so this matches the reference's shape language and palette
+// (silver seal, navy face, a two-tone faceted star) rather than being a
+// pixel copy of the source PNG.
 export function StarBadgeIcon({ className, size = 72 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 72 72" fill="none" className={className} aria-hidden="true">
       <path
-        d="M36 3 66 19.5V52.5L36 69 6 52.5V19.5Z"
-        fill="url(#kotg-badge-gradient)"
-        stroke="#3B3F8C"
-        strokeWidth="1.5"
+        d="M36.0,2.0 50.2,11.3 65.4,19.0 64.5,36.0 65.4,53.0 50.3,60.7 36.0,70.0 21.8,60.7 6.6,53.0 7.5,36.0 6.6,19.0 21.7,11.3 Z"
+        fill="url(#kotg-badge-seal)"
+        stroke="#8A93A6"
+        strokeWidth="1"
+        strokeLinejoin="round"
       />
-      <path
-        d="M36 18l4.9 10.2 11.3 1.5-8.2 7.9 2 11.2L36 43.6l-10 5.2 2-11.2-8.2-7.9 11.3-1.5L36 18Z"
-        fill="#FFD75E"
-        stroke="#E8B93A"
-        strokeWidth="0.75"
-      />
+      <circle cx="36" cy="36" r="24.5" fill="url(#kotg-badge-face)" stroke="#1B2033" strokeWidth="1" />
+      <circle cx="36" cy="36" r="24.5" fill="none" stroke="#7C86A8" strokeWidth="0.75" strokeOpacity="0.5" />
+      <path d="M36,21.0 39.6,31.0 50.3,31.4 41.9,37.9 44.8,48.1 36,42.2 Z" fill="#7A82D6" stroke="#565FBD" strokeWidth="0.5" strokeLinejoin="round" />
+      <path d="M36,21.0 32.4,31.0 21.7,31.4 30.1,37.9 27.2,48.1 36,42.2 Z" fill="#E3E6FA" stroke="#B9BEEA" strokeWidth="0.5" strokeLinejoin="round" />
+      <path d="M36,21.0 36,42.2" stroke="#F5F6FF" strokeWidth="0.75" strokeOpacity="0.6" />
       <defs>
-        <linearGradient id="kotg-badge-gradient" x1="6" y1="3" x2="66" y2="69" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#6A6FD9" />
-          <stop offset="1" stopColor="#3B3F8C" />
+        <linearGradient id="kotg-badge-seal" x1="7" y1="2" x2="65" y2="70" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#F1F3F8" />
+          <stop offset="0.5" stopColor="#C3CADC" />
+          <stop offset="1" stopColor="#9BA4BE" />
+        </linearGradient>
+        <linearGradient id="kotg-badge-face" x1="12" y1="12" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#3B4270" />
+          <stop offset="1" stopColor="#232849" />
         </linearGradient>
       </defs>
+    </svg>
+  );
+}
+
+export function InfoIcon({ className, size = 14 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" className={className} aria-hidden="true">
+      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.25" />
+      <path d="M8 7.25V11.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+      <circle cx="8" cy="4.75" r="0.9" fill="currentColor" />
     </svg>
   );
 }

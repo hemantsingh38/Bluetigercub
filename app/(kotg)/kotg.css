@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/*
+ * KOTG design tokens — sampled directly from the Figma file's own variables
+ * (fileKey 6QmN3jieuQ8wQueqtONZh2, node 12443:9248) via get_variable_defs,
+ * not guessed. This is a separate internal tool from the portfolio site
+ * (different app, different Figma file) so it gets its own token set,
+ * namespaced `--color-kotg-*` / `--font-kotg-*`, instead of reusing the
+ * portfolio's blue-serif theme in app/(site)/globals.css.
+ */
+@theme {
+  --color-kotg-bg: #ffffff;
+  --color-kotg-primary: #04649b;
+  --color-kotg-primary-active: #035483;
+  --color-kotg-black: #111729;
+  --color-kotg-text-muted: #6a6f7c;
+  --color-kotg-text-step: #6e829c;
+  --color-kotg-green: #4b8a6f;
+  --color-kotg-red: #ce4741;
+  --color-kotg-yellow: #d09539;
+  --color-kotg-border: #dddfe1;
+  --color-kotg-border-alt: #ccd5e2;
+  --color-kotg-fill: #f7f7f7;
+  --color-kotg-tint: #e7e6e6;
+
+  --font-kotg-sans: var(--font-kotg-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-kotg-display: var(--font-kotg-sora), var(--font-kotg-open-sans), ui-sans-serif, sans-serif;
+
+  --radius-kotg: 4px;
+}

@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import clsx from "clsx";
-import { PlusIcon, XIcon } from "@/components/kotg/icons";
+import { CalculatorIcon, PlusIcon, XIcon } from "@/components/kotg/icons";
 import { NumberField } from "@/components/kotg/fields/number-field";
 import { SelectField } from "@/components/kotg/fields/select-field";
+import { HoursCalculatorModal } from "@/components/kotg/hours-calculator-modal";
 import { InfoTooltip } from "@/components/kotg/ui/info-tooltip";
 import { uid, type GenAiToolRow } from "@/lib/kotg/types";
 
@@ -45,7 +47,11 @@ function HoursSaved({ estHours, actualHours }: { estHours: number | null; actual
   );
 }
 
+type CalcTarget = { rowId: string; field: "estHours" | "actualHours" } | null;
+
 export function GenAiToolsTable({ rows, onChange }: { rows: GenAiToolRow[]; onChange: (rows: GenAiToolRow[]) => void }) {
+  const [calcTarget, setCalcTarget] = useState<CalcTarget>(null);
+
   function updateRow(id: string, patch: Partial<GenAiToolRow>) {
     onChange(rows.map((row) => (row.id === id ? { ...row, ...patch } : row)));
   }
@@ -118,8 +124,30 @@ export function GenAiToolsTable({ rows, onChange }: { rows: GenAiToolRow[]; onCh
               options={ACTIVITY_OPTIONS}
               placeholder="Search or select"
             />
-            <NumberField value={row.estHours} onChange={(v) => updateRow(row.id, { estHours: v })} placeholder="0" />
-            <NumberField value={row.actualHours} onChange={(v) => updateRow(row.id, { actualHours: v })} placeholder="0" />
+            <div className="flex items-center gap-1.5">
+              <NumberField value={row.estHours} onChange={(v) => updateRow(row.id, { estHours: v })} placeholder="0" />
+              <button
+                type="button"
+                aria-label="Calculate Est. Hrs"
+                title="Calculate from resources, sessions and time spent"
+                onClick={() => setCalcTarget({ rowId: row.id, field: "estHours" })}
+                className="shrink-0 text-kotg-text-muted hover:text-kotg-primary"
+              >
+                <CalculatorIcon />
+              </button>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <NumberField value={row.actualHours} onChange={(v) => updateRow(row.id, { actualHours: v })} placeholder="0" />
+              <button
+                type="button"
+                aria-label="Calculate Actual Hrs"
+                title="Calculate from resources, sessions and time spent"
+                onClick={() => setCalcTarget({ rowId: row.id, field: "actualHours" })}
+                className="shrink-0 text-kotg-text-muted hover:text-kotg-primary"
+              >
+                <CalculatorIcon />
+              </button>
+            </div>
             <EfficiencyPill estHours={row.estHours} actualHours={row.actualHours} />
             <HoursSaved estHours={row.estHours} actualHours={row.actualHours} />
             <button
@@ -142,6 +170,15 @@ export function GenAiToolsTable({ rows, onChange }: { rows: GenAiToolRow[]; onCh
           </button>
         </div>
       </div>
+
+      <HoursCalculatorModal
+        open={calcTarget != null}
+        onClose={() => setCalcTarget(null)}
+        targetLabel={calcTarget?.field === "actualHours" ? "Actual Hrs" : "Est. Hrs"}
+        onCalculate={(hours) => {
+          if (calcTarget) updateRow(calcTarget.rowId, { [calcTarget.field]: hours });
+        }}
+      />
     </div>
   );
 }

@@ -213,6 +213,23 @@ export function StarBadgeIcon({ className, size = 72 }: IconProps) {
   );
 }
 
+export function CalculatorIcon({ className, size = 15 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" className={className} aria-hidden="true">
+      <rect x="2.5" y="1.5" width="11" height="13" rx="1.5" stroke="currentColor" strokeWidth="1.25" />
+      <path d="M4.5 4.5H11.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+      <circle cx="4.9" cy="7.6" r="0.75" fill="currentColor" />
+      <circle cx="8" cy="7.6" r="0.75" fill="currentColor" />
+      <circle cx="11.1" cy="7.6" r="0.75" fill="currentColor" />
+      <circle cx="4.9" cy="10.4" r="0.75" fill="currentColor" />
+      <circle cx="8" cy="10.4" r="0.75" fill="currentColor" />
+      <circle cx="11.1" cy="10.4" r="0.75" fill="currentColor" />
+      <circle cx="4.9" cy="13" r="0.75" fill="currentColor" />
+      <circle cx="8" cy="13" r="0.75" fill="currentColor" />
+    </svg>
+  );
+}
+
 export function InfoIcon({ className, size = 14 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" className={className} aria-hidden="true">
